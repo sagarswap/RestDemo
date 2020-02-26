@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registration Form</title>
+    </head>
+<body>
+    <form>
+        <table border='1'>
+            <tr><td>Enter User Name</td><td><input type="text" id="name" min="6"/></td></tr>
+            <tr><td>Enter your password</td><td><input type="text" id="pass"/></td></tr>
+            <tr><td>Confirm Password</td><td><input type="text" id="cpass"/></td></tr>
+            <tr><td>Select Sex</td><td><input type="radio" name="sex" id="male" value="male">Male<input type="radio" name="sex" id="female" value="female">Female</td></tr>
+            <tr><td>Select your Qualification</td><td>
+                <select id="qualifications">
+                    <option value="select">Select</option>
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="graduate">Graduate</option>
+                    <option value="postgraduate">Post Graduate</option>
+                    <option value="doctorate">Doctorate</option>
+                </select></td></tr>
+            <tr><td>Enter Your Address</td><td>
+                <textarea name="address" id="address" rows="3" cols="30"></textarea></td></tr>
+            <tr><td>Select Your country</td><td>
+                <select id="country">
+                    <option value="select">Select</option>
+                    <option value="india">India</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="srilanka">Sri Lanka</option>
+                    <option value="afganistan">Afganistan</option>
+                    <option value="china">China</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="australia">Australia</option>
+                    <option value="nepal">Nepal</option>
+                </select></td></tr>
+            <tr><td>Select Your Area of interest</td><td><input type="radio" name="interest" id="sports" value="sports">Sports
+                <input type="radio" name="interest" id="politics" value="politics">Politics
+                <input type="radio" name="interest" id="cinema" value="cinema">Cinema
+                <input type="radio" name="interest" id="no" value="no">No Interest</td></tr>
+            <tr><td>Accept terms and conditions :<input type="radio" name="acpt" id="accept" value="accept" onclick="f2()">Accept<input type="radio" name="acpt" id="decline" value="decline">Reject</td></tr>
+            <tr><td><center><button type="button" id="clr" onclick="f1()">Reset</button></center></td><td><center><button type="button" id="reg"  onclick="f3()" disabled>Register</button></center></td></tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        function f1(){
+            document.getElementById("name").value="";
+            document.getElementById("pass").value="";
+            document.getElementById("cpass").value="";
+            document.getElementById("address").value="";
+        };
+        
+        function f2(){
+            document.getElementById("reg").disabled=false;
+        };
+        
+        function f3(){
+            if(document.getElementById("pass").value==document.getElementById("cpass")){alert("Password doesn't match confirm password");}
+            if(document.getElementById("country").value=="select" || document.getElementById("qualifications").value=="select"){alert("Please enter all detals");}
+            var name=document.getElementById("name").value;
+            if(name.length<6)
+                alert("Name is too short");
+            if(document.getElementById("interest").checked || document.getElementById("sex").checked){}else{alert("Please select radio button");}
+        };
+    </script>
+    </body>
+</html>
